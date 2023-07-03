@@ -1,11 +1,6 @@
 import { createContext } from "react";
-import Props from "src/types/props";
+import { TODOS } from "src/providers/TodosProvider";
 
-const TodosContext = createContext<Props>({
-  todos: [],
-  setTodos: () => {
-    throw Error('No default value!')
-  }
-})
+const TodosContext = createContext(TODOS)
 
 export default TodosContext

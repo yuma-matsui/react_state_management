@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { FC } from "react";
-import useTodosContext from "src/hooks/useTodosContext";
+import { useTodosContext } from "src/hooks";
 
 const Header: FC = () => {
-  const { todos } = useTodosContext()
+  const todos = useTodosContext()
   return (
     <header>
       <nav>

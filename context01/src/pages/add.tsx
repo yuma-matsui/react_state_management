@@ -1,19 +1,12 @@
 import type { NextPage } from "next";
 import { ComponentProps } from "react";
-import useTodosContext from "src/hooks/useTodosContext";
+import { useTodosDispatchContext } from "src/hooks";
 
 const Add: NextPage = () => {
-  const { setTodos } = useTodosContext()
+  const { addTodo } = useTodosDispatchContext()
   const handleSubmit: ComponentProps<"form">["onSubmit"] = (e) => {
     e.preventDefault();
-    const text = e.currentTarget.text.value;
-    setTodos(prevTodos => {
-      const newTodo = { id: prevTodos.length + 1, text, isDone: false }
-      return [
-        ...prevTodos,
-        newTodo
-      ];
-    });
+    addTodo(e.currentTarget.text.value);
     e.currentTarget.reset();
   };
 
